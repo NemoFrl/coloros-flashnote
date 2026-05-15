@@ -1,0 +1,9 @@
+#!/sbin/sh
+umask 022
+cd "$(dirname "$0")/../../../"
+if [ -f module.prop ]; then
+  # KSU module mode
+  exit 0
+fi
+echo "Installing..."
+exit 0
