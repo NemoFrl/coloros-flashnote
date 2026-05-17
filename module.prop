@@ -1,6 +1,6 @@
-id=power2swipe
-name=Power2Swipe
+id=flashnote
+name=一键闪记
 version=v1.0
 versionCode=1
-author=power2swipe
-description=长按电源键触发三指上划手势，适用于 KernelSU
+author=flashnote
+description=长按电源键触发一键闪记，适用于 KernelSU
