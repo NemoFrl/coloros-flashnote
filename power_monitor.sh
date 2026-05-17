@@ -53,20 +53,18 @@ PRESS_FLAG=/data/local/tmp/power2swipe_pressed
 while read -r line; do
     value="${line##* }"
     case "$value" in
-        "00000001")
-            touch "$PRESS_FLAG"
-            (
-                sleep 1
-                if [ -f "$PRESS_FLAG" ]; then
-                    three_finger_swipe
-                fi
-            ) &
-            ;;
-        "00000000")
-            if [ -f "$PRESS_FLAG" ]; then
+            "00000001")
+                touch "$PRESS_FLAG"
+                (
+                    sleep 1
+                    if [ -f "$PRESS_FLAG" ]; then
+                        three_finger_swipe
+                        rm -f "$PRESS_FLAG"
+                    fi
+                ) &
+                ;;
+            "00000000")
                 rm -f "$PRESS_FLAG"
-                log_msg "Power key released before long press"
-            fi
-            ;;
+                ;;
     esac
 done < "$FIFO"
