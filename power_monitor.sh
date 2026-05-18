@@ -56,7 +56,7 @@ while read -r line; do
             "00000001")
                 touch "$PRESS_FLAG"
                 (
-                    sleep 1
+                    sleep 0.8
                     if [ -f "$PRESS_FLAG" ]; then
                         trigger_flash_note
                         rm -f "$PRESS_FLAG"
